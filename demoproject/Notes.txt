@@ -1,0 +1,29 @@
+pom.xml
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+By the above tags, I am telling maven to go ahead and use the Java 1.8 version.
+---------------
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.11</version>
+        </dependency>
+    </dependencies>
+
+In the dependencies tag above we can define any no. of dependencies by repeating the dependency tag within it.
+
+A small option (on hover: Load Maven Changes) on top right will pop. Clicking it will download all the dependencies from maven repository to centralised locationinside the system. Maven will first download the dependency then it will download the dependency of the dependency and will continue.
+
+Usually the central repository is named ".m2", it is a folder where maven maintains repository folder in which maven downloads all its libraries.
+Another advantage of Maven is, that we have to only commit pom.xml/configurations in the Github, and there is no requirement to commit any jar file.
+
+Q. How do we know what is the "Group ID", "Artifact ID" and "version"?
+A. Go to mvnrepository.com which indicates "maven repository". This is the centralised location from where maven tries to download all the dependencies based on the configurations we do inside pom.xml.
+
+Q. How do maven knows which location to make central repo for all the dependencies or where to download all dependencies?
+A. In the zip of maven that we downloaded, it has "conf" folder, which contains "settings.xml", where the folder path is mentioned.
